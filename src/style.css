@@ -1,0 +1,39 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+header {
+    background-color: #133e48;
+    min-height: 30vh;
+    color: white;
+}
+
+#header .title,
+#header .subtitle {
+    color: white;
+}
+
+#header section.section {
+    padding-top: 5em;
+}
+
+#pdfPreview {
+    border-radius: 5px;
+}
+
+.operationsection {
+    margin-bottom: 3em;
+}
+
+label {
+    font-weight: 600;
+}
+
+.hidden {
+    transition: all 0.5s;
+    display: none;
+}
+
+footer.footer {
+    padding: 3rem 1.5rem 3rem;
+}

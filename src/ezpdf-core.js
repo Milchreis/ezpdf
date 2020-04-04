@@ -1,0 +1,36 @@
+class Pdf {
+    constructor(pdfBytes, pdfFile) {
+        this.bytes = typeof pdfBytes === 'string' ? new TextEncoder("utf-8").encode(pdfBytes) : pdfBytes
+        this.pdfFile = pdfFile
+        this.pdfDoc = null;
+    }
+
+    async load() {
+        this.pdfDoc = await PDFLib.PDFDocument.load(this.bytes)
+    }
+
+    removePages(indicesToRemoveArray) {
+        const maxPages = this.pdfDoc.getPageCount()
+        indicesToRemoveArray
+            .filter(i => i < maxPages)
+            .forEach(v => this.pdfDoc.removePage(v))
+    }
+
+    async merge(pdf) {
+        const copiedPages = this.pdfDoc.copyPages(pdf.pdfDoc, pdf.pdfDoc.getPageIndices());
+        (await copiedPages).forEach(p => this.pdfDoc.addPage(p))
+    }
+
+    getBase64() {
+        return this.pdfDoc.saveAsBase64()
+    }
+
+    async download() {
+        const pdfBytes = await this.pdfDoc.save()
+        var blob = new Blob([pdfBytes.buffer], { type: "application/pdf" });
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = this.pdfFile.name;
+        link.click();
+    }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EZ PDF</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bulma@0.8.1/css/bulma.min.css,npm/bulma@0.8.1/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;600;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.4.1/dist/pdf-lib.min.js"></script>
+    <script src="https://npmcdn.com/smoothscroll-polyfill@0.3.3/dist/smoothscroll.js"></script>
+
+    <script defer src="ezpdf-core.js"></script>
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+    <section class="hero is-dark is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1"><i class="fas fa-file-pdf"></i> Changing PDF pages made easy...</h1>
+                <h2 class="subtitle is-3">All operations are performed on your local machine.</h2>
+                <h3 class="subtitle is-6">No data is stored or collected.</h3>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="pdfLoad" class="section">
+            <div class="container">
+                <h2 class="title is-2">Load file</h2>
+                <h2 class="subtitle is-4">Load your PDF file into browser to work with it.</h2>
+
+                <div class="file has-name is-boxed">
+                    <label class="file-label">
+                        <input type='file' class="file-input" accept='application/pdf' id="fileUpload" name="load" />
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose a file…
+                            </span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section id="pdfOperation" class="section hidden">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <div class="operationsection">
+                            <h2 class="title is-3"><i class="fas fa-minus-square"></i> Remove pages</h2>
+                            <h2 class="subtitle is-5">Select all pages you want to remove from the loaded PDF file</h2>
+
+                            <label for="removePages">Page numbers or ranges</label>
+
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" id="removePages" type="text" placeholder="1, 3, 4 - 5">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-file"></i>
+                                  </span>
+                                </p>
+                            </div>
+
+                            <div class="field">
+                                <p class="control">
+                                    <button class="button is-primary" onclick="onRemovePages(document.getElementById('removePages').value)">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-minus"></i>
+                                    </span>
+                                    <span>
+                                        Remove
+                                    </span>
+                                </button>
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="operationsection">
+                            <h2 class="title is-3"><i class="fas fa-code-branch"></i> Merge two PDF files</h2>
+                            <h2 class="subtitle is-5">Upload another file to put them together.</h2>
+                            <div class="file">
+                                <label class="file-label">
+                                    <input class="file-input" id="mergeFileUpload" type="file" name="mergeFile">
+                                    <span class="file-cta">
+                                        <span class="file-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                            Choose a file…
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="operationsection">
+                            <button class="button is-info is-medium" onclick="onSaveDocument()">
+                                DOWNLOAD
+                            </button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <object id="pdfPreview" data="" type="application/pdf" width="100%" height="800px"></object>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>EZPDF</strong> by <a href="https://github.com/milchreis">Milchreis</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

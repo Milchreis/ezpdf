@@ -1,0 +1,12 @@
+{
+    "name": "ezpdf",
+    "version": "1.0.0",
+    "description": "changing pdf files made easy",
+    "scripts": {
+        "start": "http-server ./src",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Nick Müller",
+    "license": "MIT",
+    "dependencies": {}
+}
