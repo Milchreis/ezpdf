@@ -8,7 +8,7 @@
 ## Features
  * Security: runs completely in browser on client side (Your pdf files never leave your PC)
  * No installation needed
- * Remove pages from PDF files
+ * Remove pages from PDF files (comma separated or as range)
  * Merge pages from another PDF file to the current working file
 
 ## Based on
