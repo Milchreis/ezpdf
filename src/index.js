@@ -25,8 +25,7 @@ async function loadPrimaryPdf(reader, input) {
     await primaryPdf.load()
 
     // Show PDF
-    let originalFileURL = URL.createObjectURL(input.files[0])
-    document.getElementById('pdfPreview').setAttribute("data", originalFileURL)
+    updatePdfPreview()
 
     // Hide Loader
     toggleDisplay('pdfLoad')
@@ -75,8 +74,11 @@ async function onRemovePages(pagesValue) {
 }
 
 async function updatePdfPreview() {
-    const base64 = await primaryPdf.getBase64()
-    document.getElementById('pdfPreview').setAttribute("data", `data:application/pdf;base64,${base64}`)
+    const preview = document.getElementById('pdfPreview');
+    const url = URL.createObjectURL(await primaryPdf.getBlob(), {
+        type: "application/pdf"
+    });
+    preview.setAttribute("src", url)
 }
 
 function toggleDisplay(id) {

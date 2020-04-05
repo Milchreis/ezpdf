@@ -25,11 +25,14 @@ class Pdf {
         return this.pdfDoc.saveAsBase64()
     }
 
-    async download() {
+    async getBlob() {
         const pdfBytes = await this.pdfDoc.save()
-        var blob = new Blob([pdfBytes.buffer], { type: "application/pdf" });
+        return new Blob([pdfBytes.buffer], { type: "application/pdf" });
+    }
+
+    async download() {
         var link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
+        link.href = window.URL.createObjectURL(await this.getBlob());
         link.download = this.pdfFile.name;
         link.click();
     }
