@@ -30,14 +30,52 @@
         </div>
     </section>
 
+    <section class="section is-dark">
+
+        <div class="container">
+            <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="title"><i class="fas fa-shield-alt"></i></p>
+                        <p class="title">Security</p>
+                        <p class="heading">No uploads to server, no tracking, no ads</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="title"><i class="fas fa-lightbulb"></i></p>
+                        <p class="title">Simplicity</p>
+                        <p class="heading">Simple and easy user interface</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="title"><i class="fas fa-tachometer-alt"></i></p>
+                        <p class="title">Performance</p>
+                        <p class="heading">Works with large PDF files</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="title"><i class="fas fa-box-open"></i></p>
+                        <p class="title">Online</p>
+                        <p class="heading">No installation needed</p>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+
     <main>
         <section id="pdfLoad" class="section">
-            <div class="container">
+            <div class="container has-text-centered">
                 <h2 class="title is-2">Load file</h2>
                 <h2 class="subtitle is-4">Load your PDF file into browser to work with it.</h2>
 
-                <div class="file has-name is-boxed">
-                    <label class="file-label">
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="file has-name is-boxed">
+                        <label class="file-label">
                         <input type='file' class="file-input" accept='application/pdf' id="fileUpload" name="load" />
                         <span class="file-cta">
                             <span class="file-icon">
@@ -48,11 +86,12 @@
                             </span>
                         </span>
                     </label>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="pdfOperation" class="section hidden">
+        <section id="pdfOperation" class="section is-hidden">
             <div class="container">
                 <div class="columns">
                     <div class="column is-one-third">
@@ -108,7 +147,7 @@
                         <hr />
 
                         <div class="operationsection">
-                            <button class="button is-info is-medium" onclick="onSaveDocument()">
+                            <button class="button is-info is-medium is-size-4" onclick="onSaveDocument()">
                                 DOWNLOAD
                             </button>
                         </div>

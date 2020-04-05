@@ -23,15 +23,11 @@ header {
 
 .operationsection {
     margin-bottom: 3em;
+    transition: all 0.5s;
 }
 
 label {
     font-weight: 600;
-}
-
-.hidden {
-    transition: all 0.5s;
-    display: none;
 }
 
 footer.footer {

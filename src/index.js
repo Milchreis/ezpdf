@@ -1,5 +1,5 @@
-var primaryPdf;
-var mergePdf;
+var primaryPdf = null
+var mergePdf = null
 
 // Uploaders
 document.getElementById("fileUpload").onchange = event => fileUploader(event, loadPrimaryPdf);
@@ -24,12 +24,8 @@ async function loadPrimaryPdf(reader, input) {
     primaryPdf = new Pdf(data, input.files[0])
     await primaryPdf.load()
 
-    // Show PDF
     updatePdfPreview()
-
-    // Hide Loader
-    toggleDisplay('pdfLoad')
-    toggleDisplay('pdfOperation')
+    show('pdfOperation')
 
     // Scroll to operation panel
     document.querySelector('#pdfOperation').scrollIntoView({ behavior: 'smooth' });
@@ -81,15 +77,14 @@ async function updatePdfPreview() {
     preview.setAttribute("src", url)
 }
 
-function toggleDisplay(id) {
+function hide(id) {
     const element = document.getElementById(id)
-    let isHidden = element.classList.contains('hidden')
+    element.classList.add("is-hidden")
+}
 
-    if (isHidden) {
-        element.classList.remove('hidden')
-    } else {
-        element.classList.add("hidden")
-    }
+function show(id) {
+    const element = document.getElementById(id)
+    element.classList.remove('is-hidden')
 }
 
 function range(start, end) {
