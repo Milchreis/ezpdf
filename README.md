@@ -12,6 +12,6 @@
  * Merge pages from another PDF file to the current working file
 
 ## Based on
- * [pdf-lib.org](https://pdf-lib.js.org/)
+ * [pdf-lib](https://pdf-lib.js.org/)
  * [Bulma CSS](https://bulma.io/)
  
