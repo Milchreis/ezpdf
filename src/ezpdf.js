@@ -13,7 +13,8 @@ class Pdf {
         const maxPages = this.pdfDoc.getPageCount()
         indicesToRemoveArray
             .filter(i => i < maxPages)
-            .forEach(v => this.pdfDoc.removePage(v))
+            .sort()
+            .forEach((page, index) => this.pdfDoc.removePage(page - index))
     }
 
     async merge(pdf) {
